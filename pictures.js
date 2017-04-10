@@ -19,7 +19,7 @@ const hash = HttpHash()
 hash.set('GET /:id', async function getPicture (req, res, params) {
   let id = params.id
   await db.connect()
-  let image = db.getImage(id)
+  let image = await db.getImage(id)
   await db.disconnect()
   send(res, 200, image)
 })

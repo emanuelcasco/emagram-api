@@ -3,15 +3,15 @@
 import fixtures from '../fixtures/'
 
 export default class DB {
-  connect() {
+  connect () {
     return Promise.resolve(true)
   }
 
-  disconnect() {
+  disconnect () {
     return Promise.resolve(true)
   }
 
-  getImage(id) {
+  getImage (id) {
     return Promise.resolve(fixtures.getImage())
   }
 }

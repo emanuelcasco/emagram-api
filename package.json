@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Microservices fot Emagram",
   "scripts": {
-    "test": "npm run lint && NODE_ENV=test ava",
+    "test": "npm run lint && NODE_ENV=test ava test/**-test.js",
     "lint": "standard"
   },
   "standart": {

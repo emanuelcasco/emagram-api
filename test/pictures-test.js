@@ -2,7 +2,6 @@
 
 import test from 'ava'
 import micro from 'micro'
-import uuid from 'uuid-base62'
 import listen from 'test-listen'
 import request from 'request-promise'
 import fixtures from './fixtures/'
