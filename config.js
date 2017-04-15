@@ -1,3 +1,4 @@
 export default {
-  db: {}
+  db: {},
+  secret: process.env.EMAGRAM_SECRET || 'em4gram'
 }
