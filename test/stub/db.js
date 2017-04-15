@@ -19,6 +19,10 @@ export default class DB {
     return Promise.resolve(fixtures.getImages())
   }
 
+  getUser (username) {
+    return Promise.resolve(fixtures.getUser())
+  }
+
   saveImage (image) {
     return Promise.resolve(fixtures.getImage())
   }
@@ -36,5 +40,9 @@ export default class DB {
 
   getImagesByTag (tag) {
     return Promise.resolve(fixtures.getImagesByTag())
+  }
+
+  authenticate () {
+    return Promise.resolve(true)
   }
 }

@@ -36,5 +36,4 @@ export default {
       createdAt: new Date().toString()
     }
   }
-
 }
