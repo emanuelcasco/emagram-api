@@ -12,11 +12,30 @@ test.beforeEach(async t => {
   t.context.url = await listen(srv)
 })
 
-test('GET /:id', async t => {
-  let image = fixtures.getImage()
+test('POST /', async t => {
+  let user = fixtures.getUser()
   let url = t.context.url
 
-  let body = await request({ uri: `${url}/${image.publicId}`, json: true })
+  let options = {
+    method: 'POST',
+    uri: url,
+    json: true,
+    body: {
+      name: user.name,
+      username: user.username,
+      password: user.password,
+      email: user.email
+    },
+    resolveWithFullResponse: true
+  }
 
-  t.deepEqual(body, image)
+  let response = await request(options)
+
+  delete user.email
+  delete user.password
+
+  t.is(response.statusCode, 201)
+  t.deepEqual(response.body, user)
 })
+
+test.todo('GET /:username')

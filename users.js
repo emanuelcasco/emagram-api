@@ -16,9 +16,30 @@ if (env === 'test') {
 
 const hash = HttpHash()
 
-hash.set('GET /list', async function list (req, res, params) {
+hash.set('POST /', async function saveUser (req, res, params) {
+  let user = await json(req)
   await db.connect()
-  let images = await db.getImages()
+  let created = await db.saveUser(user)
   await db.disconnect()
-  send(res, 200, images)
+
+  delete created.email
+  delete created.password
+
+  send(res, 201, created)
 })
+
+export default async function main (req, res) {
+  let { method, url } = req
+
+  let match = hash.get(`${method.toUpperCase()} ${url}`)
+
+  if (match.handler) {
+    try {
+      await match.handler(req, res, match.params)
+    } catch (e) {
+      send(res, 500, { error: e.message })
+    }
+  } else {
+    send(res, 404, { error: 'route not found' })
+  }
+}

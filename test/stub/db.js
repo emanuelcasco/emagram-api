@@ -23,6 +23,10 @@ export default class DB {
     return Promise.resolve(fixtures.getImage())
   }
 
+  saveUser (user) {
+    return Promise.resolve(fixtures.getUser())
+  }
+
   likeImage (id) {
     let image = fixtures.getImage()
     image.liked = true

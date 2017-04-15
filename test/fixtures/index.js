@@ -24,5 +24,17 @@ export default {
       this.getImage(),
       this.getImage()
     ]
+  },
+  getUser () {
+    return {
+      id: '19ffd731-ade8-4da5-863c-9c72216b23b6',
+      publicId: '4fo3Sd4tuWXByh7kEYHei6',
+      name: 'Emanuel Casco',
+      username: 'emanuelcasco',
+      email: 'emanuel@gmail.com',
+      password: 'em4gram',
+      createdAt: new Date().toString()
+    }
   }
+
 }
